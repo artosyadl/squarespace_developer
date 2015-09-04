@@ -1,0 +1,28 @@
+For example:
+
+{
+    "name" : "blocktype-standard",
+    "type" : "checkbox",
+    "title" : "Standard Block"
+}
+
+
+Squarespace Пользовательские поля Тип Синтаксис:
+
+Single-line text field
+"type" : "text"
+
+Checkbox
+"type" : "checkbox"
+
+Image uploader
+"type" : "image"
+
+Video uploader
+"type" : "video"
+
+Basic WYSIWYG text block
+"type" : "wysiwyg"
+
+Image gallery block
+"type" : "gallery"

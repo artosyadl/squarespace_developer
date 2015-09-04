@@ -1,0 +1,15 @@
+Example:
+
+http://base-template.squarespace.com/blog/?format=json-pretty
+
+
+
+для просмотра всего масива даных что есть на странице, нужно только дописать в URL "?format=json-pretty"
+
+
+<pre>{@|json-pretty}</pre>
+
+
+или 
+
+<script>console.log({@|json-pretty})</script>

@@ -1,0 +1,58 @@
+ Мы добавили пользовательские поля, создавая массив объектов, называемых "customTypes" в нашей template.conf файла. (просто в самый низ добавляем масив):
+
+ -----------------------------------------------------------------------
+
+ "customTypes": [
+    {
+        "title": "Case Study",
+        "name": "case-study",
+        "base": "text",
+        "fields": [
+            {
+                "name": "ctaLink",
+                "type": "text",
+                "title": "Case Study CTA Link"
+            },
+            {
+                "name": "ctaText",
+                "type": "text",
+                "title": "Case Study CTA Text"
+            },
+
+            .........
+        ]
+    }
+]
+
+
+
+
+дальше в колекциях  (collectioms) вызываю в файле name.conf наш кастомный тип полей case-study:
+
+
+{
+    "title" : "Case Study",
+    "ordering" : "user-orderable",
+    "addText" : "Add Case Study",
+    "acceptTypes": ["case-study"]      <--------------   case-study
+}
+
+
+
+
+
+
+Пример работы с полями:
+
+
+{.if item.customContent.ctaLink}
+    <div class="-wrapper--horizontal">
+        <a href="{item.customContent.ctaLink}" class="js-transition-content project__link js-link-out -animate--viz" target="_blank">
+            {.if item.customContent.ctaText}
+                {item.customContent.ctaText}
+            {.or}
+                Visit {item.title}
+            {.end}
+        </a>
+    </div>
+{.end}
