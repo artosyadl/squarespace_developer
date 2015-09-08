@@ -1,0 +1,44 @@
+<script>
+  /*
+  :::::::::::::::::::::::::::::::::::::::::::::
+  ::: Build array of months in French
+  */
+  var month=new Array(12);
+  month[0]="janvier";  month[1]="février";   month[2]="mars";
+  month[3]="avril";    month[4]="mai";       month[5]="juin";
+  month[6]="juillet";  month[7]="août";      month[8]="septembre";
+  month[9]="octobre";  month[10]="novembre"; month[11]="décembre";
+
+  Y.use('node', 'node-load', function(Y) {
+    Y.on('domready', function() {
+      /*
+      :::::::::::::::::::::::::::::::::::::::::::::
+      ::: Substitute specific strings
+      */
+      Y.all('.ss-social-button').setHTML('<span class="ss-social-button-icon"></span>Partagez');
+      Y.all('.inline-read-more').setHTML('Continuer à lire');
+      // Y.all('.newer-posts').setHTML('Suiv');
+      // Y.all('.older-posts').setHTML('Prec');
+      /*
+      :::::::::::::::::::::::::::::::::::::::::::::
+      ::: Reformat published date (Blog)
+      */
+      Y.all('time.published').each(
+        function() {
+          var pdate = new Date(this.getAttribute('datetime'));
+          this.setHTML(pdate.getDate() + " " + month[pdate.getMonth()] + " " + pdate.getFullYear());
+        }
+      ); // .published
+      /*
+      :::::::::::::::::::::::::::::::::::::::::::::
+      ::: Reformat time since string
+      */
+      Y.all('time.timestamp').each(
+        function() {
+          var tdate = new Date(this.getAttribute('datetime'));
+          this.setHTML(tdate.getDate() + " " + month[tdate.getMonth()] + " " + tdate.getFullYear());
+        }
+      ); // .timestamp (.timesince)
+    }); // Y.on
+  });
+</script>
