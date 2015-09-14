@@ -19,6 +19,6 @@
         document.getElementsByTagName("head")[0].appendChild(script);
     }
  loadScript("https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function () {      
-  $("p").text('Hello JQuery! I'm back! :)");
+  $("p").text("Hello JQuery! I'm back! :)");
     });
 })();
